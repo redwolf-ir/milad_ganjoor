@@ -1,0 +1,599 @@
+/* ----------------------------
+    BASICS
+---------------------------- */
+@font-face {
+  font-family: "iranNormal";
+  src: url("../font/IranianSansWeb-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "iranBold";
+  src: url("../font/IranianSansWeb-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  background: #e2dbd4;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+     v2.0 | 20110126
+     License: none (public domain)
+  */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+/* ----------------------------
+    MAIN TOP NAVIGATION
+---------------------------- */
+.top-svg {
+  width: 100%;
+  height: 12px;
+  position: relative;
+  background-image: url("../img/bg.svg");
+  background-repeat: repeat;
+  background-size: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.top-nav {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 64px;
+  box-sizing: border-box;
+  box-shadow: 0 0 30px #cfc3c6;
+}
+.top-nav-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-nav h1 {
+  font-family: iranBold, sans-serif;
+  font-size: 18px;
+  letter-spacing: -2px;
+  color: red;
+}
+.top-nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.top-nav ul li {
+  font-family: iranBold, sans-serif;
+  color: #6a5975;
+  font-size: 14px;
+  margin-left: 16px;
+}
+.top-nav ul li::after {
+  content: "/";
+  margin-right: 16px;
+  color: #cfc3c6;
+}
+.top-nav ul li:last-child {
+  margin-left: 0;
+}
+.top-nav ul li:last-child::after {
+  content: none;
+}
+/* ----------------------------
+    SEARCH FORM
+---------------------------- */
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #6a5975;
+}
+form input {
+  background-color: transparent;
+  border: none;
+  font-family: iranNormal, sans-serif;
+  font-size: 18px;
+  padding: 12px 32px;
+  box-sizing: border-box;
+  outline: none;
+  color: #6a5975;
+}
+form button {
+  cursor: pointer;
+  position: absolute;
+  margin-left: 16px;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  border-radius: 16px;
+  border: 0;
+  background-color: #cfc3c6;
+  color: #6a5975;
+  padding: 8px 16px;
+  font-family: iranNormal, sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+form button:hover {
+  color: #cfc3c6;
+  background-color: #6a5975;
+}
+/* ----------------------------
+    POETS PART
+---------------------------- */
+.poets {
+  margin-top: 32px;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.poets h3 {
+  font-family: iranBold, sans-serif;
+  font-size: 32px;
+  border-radius: 64px;
+  padding: 16px;
+  letter-spacing: -3px;
+  text-align: center;
+  color: #39313c;
+  border: 3px solid #39313c;
+}
+.poets-part {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 64px;
+}
+.poets-part li {
+  width: 15.4166%;
+  margin-left: 1.5%;
+  margin-bottom: 64px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px #cfc3c6;
+  background-color: #cfc3c6;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+.poets-part li:hover {
+  background-color: tomato;
+}
+.poets-part li:hover picture {
+  box-shadow: 0 5px 20px brown;
+}
+.poets-part li a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #39313c;
+}
+.poets-part li a:hover {
+  color: #cfc3c6;
+}
+.poets-part li picture {
+  width: 120px;
+  height: 120px;
+  display: block;
+  background-color: transparent;
+  border-radius: 30% 70% 33% 67% / 65% 33% 67% 35%;
+  margin: -16px auto 16px auto;
+  box-shadow: 0 5px 20px #d2c3b3;
+  transition-duration: 0.2s;
+  overflow: hidden;
+}
+.poets-part li:hover picture {
+  border-radius: 50%;
+}
+.poets-part li:hover {
+  box-shadow: 0 0 50px #d2c3b3;
+}
+.poets-part li:nth-child(6n) {
+  margin-left: 0;
+}
+.poets-part li p {
+  text-align: center;
+  font-family: iranNormal, sans-serif;
+  font-size: 17px;
+}
+/* ----------------------------
+    FOOTER
+---------------------------- */
+.bottom-svg {
+  width: 100%;
+  height: 12px;
+  position: relative;
+  background-image: url("../img/bg.svg");
+  background-repeat: repeat;
+  background-size: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+footer {
+  width: 100%;
+  padding: 16px 0;
+  background-color: #39313c;
+}
+footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+footer ul li {
+  margin-left: 14px;
+  font-family: iranNormal, sans-serif;
+  font-size: 17px;
+}
+footer ul li:last-child {
+  margin-left: 0;
+}
+footer ul li:last-child:after {
+  content: none;
+  margin-right: 0;
+}
+footer ul li:after {
+  font-family: iranNormal, sans-serif;
+  font-size: 17px;
+  content: "•";
+  margin-right: 14px;
+  color: tomato;
+}
+footer ul li a {
+  color: #e2dbd4;
+}
+footer ul li a:hover {
+  color: tomato;
+}
+footer p {
+  text-align: center;
+  font-family: iranBold, sans-serif;
+  font-size: 12px;
+  margin: 16px 0;
+  color: #d2c3b3;
+}
+.redwolf {
+  display: block;
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+  background-color: tomato;
+}
+/* ----------------------------
+    POET SINGLE PAGE
+---------------------------- */
+.single-page-poet {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+/* POET PICTURE PART */
+.poet-picture {
+  width: 29%;
+  display: flex;
+  flex-direction: column;
+}
+.poet-picture-part {
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: #cfc3c6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 0 30px #cfc3c6;
+  margin-bottom: 16px;
+}
+.poet-picture-part picture {
+  width: 180px;
+  height: 200px;
+  display: block;
+  background-color: red;
+  margin-bottom: 16px;
+}
+.poet-picture-part h1 {
+  font-family: iranBold, sans-serif;
+  font-size: 24px;
+  letter-spacing: -2px;
+  text-align: center;
+}
+.poet-picture-part h2 {
+  font-family: iranNormal, sans-serif;
+  color: #6a5975;
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+/* LITTLE NAVIGATION */
+.breadcast {
+  font-family: iranBold, sans-serif;
+  font-size: 14px;
+  letter-spacing: -1px;
+  line-height: 24px;
+  color: #39313c;
+  padding: 8px 32px;
+  box-sizing: border-box;
+  background-color: #d2c3b3;
+  box-shadow: 0 0 30px #cfc3c6;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.breadcast li {
+  margin-left: 16px;
+}
+.breadcast li::after {
+  content: "/";
+  margin-right: 16px;
+  color: #6a5975;
+}
+.breadcast li:last-child::after {
+  content: none;
+  margin-right: 0;
+}
+.breadcast a {
+  color: #39313c;
+}
+/* LIKE PART */
+.like-part {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.like-part li {
+  width: 48%;
+  margin-left: 4%;
+  background-color: #cfc3c6;
+  box-sizing: border-box;
+  padding: 16px;
+  text-align: left;
+  box-shadow: 0 0 30px #cfc3c6;
+}
+.like-part li:hover {
+  color: white;
+  background-color: #6a5975;
+}
+.like-part li:last-child {
+  margin-left: 0;
+}
+/* POET INFORMATION PART */
+.poet-info {
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+}
+.poet-content {
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: #cfc3c6;
+  margin-bottom: 32px;
+  box-shadow: 0 0 30px #cfc3c6;
+}
+.poet-content h3 {
+  font-family: iranBold, sans-serif;
+  font-size: 20px;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+.poet-content p {
+  font-family: iranNormal, sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+.poet-content ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: -16px;
+}
+.poet-content li {
+  font-family: iranNormal, sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -1px;
+  margin-left: 16px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  color: #cfc3c6;
+  background-color: #6a5975;
+  border: 2px solid #39313c;
+  margin-bottom: 16px;
+}
+.poem-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.poem-content p {
+  font-family: iranBold, sans-serif;
+  font-size: 16px;
+  letter-spacing: -1px;
+  width: 46%;
+  margin-bottom: 16px;
+}
+.poem-content p:nth-child(2n + 1) {
+  text-align: left;
+  margin-left: 8%;
+}
+.poem-content-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.poem-content-center p {
+  font-family: iranBold, sans-serif;
+  font-size: 16px;
+  letter-spacing: -1px;
+  margin: 0 !important;
+  text-align: center !important;
+}
