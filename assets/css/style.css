@@ -206,6 +206,12 @@ table {
   font-size: 14px;
   margin-left: 16px;
 }
+.top-nav ul li a {
+  color: #6a5975;
+}
+.top-nav ul li a:hover {
+  color: tomato;
+}
 .top-nav ul li::after {
   content: "/";
   margin-right: 16px;
@@ -542,6 +548,14 @@ footer p {
   line-height: 32px;
   letter-spacing: -1px;
 }
+.poet-content a {
+  color: #6a5975;
+  font-family: iranBold, sans-serif;
+  font-size: 16px;
+}
+.poet-content a:hover {
+  color: tomato;
+}
 .poet-content ul {
   width: 100%;
   display: flex;
@@ -556,11 +570,18 @@ footer p {
   letter-spacing: -1px;
   margin-left: 16px;
   box-sizing: border-box;
-  padding: 8px 16px;
   color: #cfc3c6;
   background-color: #6a5975;
   border: 2px solid #39313c;
   margin-bottom: 16px;
+}
+.poet-content li a {
+  padding: 8px 16px;
+  display: block;
+  color: #cfc3c6;
+}
+.poet-content li a:hover {
+  color: tomato;
 }
 .poem-content {
   width: 100%;
@@ -596,4 +617,26 @@ footer p {
   letter-spacing: -1px;
   margin: 0 !important;
   text-align: center !important;
+}
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 960px;
+  }
+}
+@media only screen and (max-width: 961px) {
+  .container {
+    width: 720px;
+  }
+}
+@media only screen and (max-width: 721px) {
+  .container {
+    width: 480px;
+  }
+}
+@media only screen and (max-width: 481px) {
+  .container {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 301px) {
 }

@@ -2,7 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 from pprint import pprint
 import sys
-import glob
+import os
+
 
 main_html = ""
 header_html = """
@@ -73,37 +74,52 @@ after_poems = """
 """
 
 
-link = "https://ganjoor.net/razi/"
+link = "https://ganjoor.net/"
 page = requests.get(link)
 soup = BeautifulSoup(page.content, 'html.parser')
-names = soup.find_all("a", href=lambda href: href and link in href)[4:]
-poet_name = soup.find("h2")
+name = soup.findAll("div", {"class": "poet"})
 
-for a in names:
-    poemlink = a['href']
-    name_of_poem = poemlink[25:-1]
-    poem = requests.get(poemlink)
-    poem_soup = BeautifulSoup(poem.content, 'html.parser')
-    h3_numbers = poem_soup.find_all("h3")
-    main_html = ""
+for res in name:
+    poet_link = res.find('a')['href']
+    page2 = requests.get(str(poet_link))
+    soup2 = BeautifulSoup(page2.content, 'html.parser')
+    names = soup2.find_all(
+        "a", href=lambda href: href and str(poet_link) in href)[3:]
+    poet_name = soup2.find("h2")
+    poet_name_en = res.find('a')['href'][20:-1]
+    for a in names:
+        poemlink = a['href']
+        name_of_poem = poemlink[25:-1]
+        poem = requests.get(poemlink)
+        poem_soup = BeautifulSoup(poem.content, 'html.parser')
+        h3_numbers = poem_soup.find_all("h3")
+        main_html = ""
 
-    if len(h3_numbers) < 3:
-        poem_header = a.string
-        main_html += header_html
-        main_html += "<h2>" + str(poet_name) + "</h2>"
-        main_html += "<h1>" + str(poem_header) + "</h1>"
-        main_html += after_header
-        main_html += "<h3>" + str(poem_header) + "</h3>"
-        main_html += '<div class="poem-content">'
+        if len(h3_numbers) < 3:
+            poem_header = a.string
+            main_html += header_html
+            main_html += "<h2>" + str(poet_name) + "</h2>"
+            main_html += "<h1>" + str(poem_header) + "</h1>"
+            main_html += after_header
+            main_html += "<h3>" + str(poem_header) + "</h3>"
+            main_html += '<div class="poem-content">'
 
-        beyt_1 = poem_soup.findAll("div", {"class": "m1"})
-        beyt_2 = poem_soup.findAll("div", {"class": "m2"})
-        index = 0
-        for a in beyt_1:
-            main_html += "<p>" + str(a.text) + "</p>"
-            main_html += "<p>" + str(beyt_2[index].text) + "</p>"
-            index += 1
-        main_html += after_poems
-        f = open('razi/%s.php' % name_of_poem, 'w', encoding='utf-8')
-        f.write(str(main_html))
-        f.close()
+            beyt_1 = poem_soup.findAll("div", {"class": "m1"})
+            beyt_2 = poem_soup.findAll("div", {"class": "m2"})
+            index = 0
+            for a in beyt_1:
+                main_html += "<p>" + str(a.text) + "</p>"
+                main_html += "<p>" + str(beyt_2[index].text) + "</p>"
+                index += 1
+            main_html += after_poems
+            save_path = os.path.join("poets", str(poet_name_en))
+            if not os.path.exists(save_path):
+                os.makedirs(save_path)
+
+            if str(poet_name_en) == "ebnehesam/esam/tarebn":
+                continue
+            f = open("poets/" + str(poet_name_en) + '/%s.php' %
+                     name_of_poem, 'w', encoding='utf-8')
+            f.write(str(main_html))
+            f.close()
+            print("done ...")
